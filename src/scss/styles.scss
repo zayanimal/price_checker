@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+body {
+    font-family: 'Roboto';
+}
+
+.Main {
+    &__input {
+        margin-bottom: 30px;
+    }
+
+    &__table-row {
+        font-size: 16px;
+    }
+    
+    &_pb {
+        padding-bottom: 30px;
+    }
+}
