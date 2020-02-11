@@ -176,7 +176,7 @@ export default {
                 return margin ? 1 + num / 100 : 1 - num / 100;
             }
 
-            return Number(price * 1.03 * factor(discount || 1) * factor(margin || 1, true));
+            return Number(price * 1.03 * factor(discount || 0) * factor(margin || 0, true));
         },
         extRub(index) {
             return this.extUsd(index) * this.rate;
@@ -194,3 +194,5 @@ export default {
     }
 }
 </script>
+<style lang="scss" scoped>
+</style>
