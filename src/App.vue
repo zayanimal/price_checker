@@ -8,8 +8,9 @@ import Price from './components/Price.vue'
 
 export default {
     name: 'app',
+
     components: {
-        Price    
+        Price
     }
 }
 </script>

@@ -12,7 +12,12 @@ body {
     &__table-row {
         font-size: 16px;
     }
-    
+
+    &__checkbox {
+        margin-left: 1em;
+        margin-bottom: 2em;
+    }
+
     &_pb {
         padding-bottom: 30px;
     }

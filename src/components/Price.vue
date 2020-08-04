@@ -5,7 +5,7 @@
                 <el-col :span="6">
                     <el-input
                         class="Main__input"
-                        placeholder="Enter model" 
+                        placeholder="Enter model"
                         v-model="input"
                     />
                     <el-table
@@ -23,6 +23,11 @@
                     </el-table>
                 </el-col>
                 <el-col :span="17">
+                    <el-row :gutter="20">
+                        <el-checkbox v-model="distiMargin" class="Main__checkbox">
+                            3% наценки дистрибьютора
+                        </el-checkbox>
+                    </el-row>
                     <el-row class="Main_pb">
                         <el-table
                             v-if="showTable"
@@ -34,14 +39,14 @@
                                 label="Model"
                             />
                             <el-table-column
-                                prop="price" 
+                                prop="price"
                                 label="DDP"
                             >
                                 <template slot-scope="scope">
                                     {{ `$ ${formatNum(scope.row.price)}` }}
                                 </template>
                             </el-table-column>
-                            <el-table-column 
+                            <el-table-column
                                 width="70"
                                 prop="discount"
                                 label="Disc"
@@ -53,17 +58,17 @@
                                 </template>
                             </el-table-column>
                             <el-table-column
-                                width="70" 
+                                width="70"
                                 prop="margin"
                                 label="Margin"
                             >
                                 <template slot-scope="scope">
-                                    <el-input 
+                                    <el-input
                                         v-model="checkedRows[scope.$index].margin"
                                     />
                                 </template>
                             </el-table-column>
-                            <el-table-column 
+                            <el-table-column
                                 prop="extUsd"
                                 label="Ext $"
                             >
@@ -80,7 +85,7 @@
                                     {{ `${formatNum(extRub(scope.$index))} р.` }}
                                 </template>
                             </el-table-column>
-                            <el-table-column 
+                            <el-table-column
                                 min-width="170"
                                 prop="delivery"
                                 label="Delivery"
@@ -91,7 +96,7 @@
                                     />
                                 </template>
                             </el-table-column>
-                            <el-table-column 
+                            <el-table-column
                                 label="Action"
                             >
                                 <template slot-scope="scope">
@@ -102,7 +107,7 @@
                                     >
                                         <i class="el-icon-delete-solid"></i>
                                     </el-button>
-                                </template> 
+                                </template>
                             </el-table-column>
                         </el-table>
                     </el-row>
@@ -125,7 +130,8 @@ export default {
         alert: false,
         tableData: models,
         checkedRows: [],
-        rate: 0
+        rate: 0,
+        distiMargin: true
     }),
     computed: {
         showTable() {
@@ -142,9 +148,9 @@ export default {
     methods: {
         selectModel(cell) {
             const { model, price } = cell;
-            this.checkedRows.push({ 
-                model, 
-                price, 
+            this.checkedRows.push({
+                model,
+                price,
                 discount: 7,
                 margin: 10,
                 delivery: 'со склада в Рязани 3-4 дня'
@@ -176,7 +182,7 @@ export default {
                 return margin ? 1 + num / 100 : 1 - num / 100;
             }
 
-            return Number(price * 1.03 * factor(discount || 0) * factor(margin || 0, true));
+            return Number(price * (this.distiMargin ? 1.03 : 1) * factor(discount || 0) * factor(margin || 0, true));
         },
         extRub(index) {
             return this.extUsd(index) * this.rate;
