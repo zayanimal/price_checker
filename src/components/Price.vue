@@ -24,7 +24,7 @@
                 </el-col>
                 <el-col :span="17">
                     <el-row :gutter="20">
-                        <el-checkbox v-model="distiMargin" class="Main__checkbox">
+                        <el-checkbox v-if="showTable" v-model="distiMargin" class="Main__checkbox">
                             3% наценки дистрибьютора
                         </el-checkbox>
                     </el-row>
