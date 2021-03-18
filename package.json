@@ -1,7 +1,7 @@
 {
-  "name": "vue_price",
-  "version": "0.1.0",
-  "private": true,
+  "name": "price-checker",
+  "version": "1.0.0",
+  "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
