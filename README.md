@@ -1,5 +1,7 @@
 # vue_price
 
+https://zayanimal.github.io/price_checker/
+
 ### Старт проекта
 ```
 npm run start
