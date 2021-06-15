@@ -1,24 +1,16 @@
 # vue_price
 
-## Project setup
+### Старт проекта
 ```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
+npm run start
 ```
 
-### Compiles and minifies for production
+### Парсинг прайса
 ```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
+npm run parse
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Деплой (passphrase: github)
+```
+npm run deploy
+```
